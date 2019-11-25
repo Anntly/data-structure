@@ -1,0 +1,79 @@
+package algorithm.greedy;
+
+import java.util.*;
+
+/**
+ * 贪心算法解决集合覆盖问题
+ * 1.
+ */
+public class GreedyAlgorithm {
+
+	public static void main(String[] args) {
+		// 使用Map<String,HashSet>存储广播台与覆盖地区
+		Map<String,HashSet<String>> ks = new HashMap<>();
+		HashSet<String> set1 = new HashSet<>();
+		set1.add("北京");
+		set1.add("上海");
+		set1.add("天津");
+		ks.put("k1",set1);
+		HashSet<String> set2 = new HashSet<>();
+		set2.add("广州");
+		set2.add("北京");
+		set2.add("深圳");
+		ks.put("k2",set2);
+		HashSet<String> set3 = new HashSet<>();
+		set3.add("成都");
+		set3.add("上海");
+		set3.add("杭州");
+		ks.put("k3",set3);
+		HashSet<String> set4 = new HashSet<>();
+		set4.add("上海");
+		set4.add("天津");
+		ks.put("k4",set4);
+		HashSet<String> set5 = new HashSet<>();
+		set5.add("杭州");
+		set5.add("大连");
+		ks.put("k5",set5);
+
+		// 使用一个HashSet存放所有地区
+		HashSet<String> areas = new HashSet<>();
+		areas.addAll(set1);
+		areas.addAll(set2);
+		areas.addAll(set3);
+		areas.addAll(set4);
+		areas.addAll(set5);
+
+		// 遍历ks，每一轮将与areas交集最多的集合的key放入result,再将areas中的对应地区去掉
+		List<String> result = new ArrayList<>();
+		// 暂存每一轮每个key与areas的交集数量的最大值
+		String maxKey = null;
+		Integer maxNum = 0;
+		// 用于暂存覆盖地区的交集
+		HashSet<String> temp = new HashSet<>();
+
+		while (areas.size() > 0){ // 当地区集合还有地区未被覆盖就继续遍历
+			// 重置maxKey与maxNum
+			maxKey = null;
+			maxNum = 0;
+			for (String key : ks.keySet()){
+				// 清空 temp
+				temp.clear();
+				HashSet<String> set = ks.get(key);
+				temp.addAll(set);
+				temp.retainAll(areas); // 求交集，交集结果会放在temp中
+				if(temp.size() > 0 &&  temp.size() > maxNum){ // 当交集存在，且大小大于最大交集的时候，设置maxKey
+					maxKey = key;
+					maxNum = temp.size();
+				}
+			}
+			// 找到maxKey之后将maxKey放入result中
+			if(maxKey != null){
+				result.add(maxKey);
+				// 将areas中的已覆盖地区取出
+				areas.removeAll(ks.get(maxKey));
+			}
+		}
+
+		System.out.println(result);
+	}
+}

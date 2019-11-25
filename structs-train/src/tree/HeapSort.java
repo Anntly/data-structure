@@ -1,0 +1,67 @@
+package tree;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class HeapSort {
+
+	public static void main(String[] args) {
+//		int[] arr = {1,7,2,9,8,5,7};
+//		heapSort(arr);
+//		System.out.println(Arrays.toString(arr));
+	}
+
+	/**
+	 * 每次构建完成最大堆之后，最大的节点就会交换到数组第一个位置
+	 * 只需要将第一个元素交换到最后的位置，再将arr.length-1 个元素再进行构建就会得到第二个最大的元素
+	 * @param arr
+	 */
+	public static void heapSort(int[] arr){
+		buildMaxHeap(arr); // 构建好二叉堆
+		for (int i = arr.length - 1; i >= 1 ; i--) {
+			// 将数组第一个元素，即最大的元素与最后的元素交换(当前长度最后的元素)
+			arr[i] = arr[0]^arr[i];
+			arr[0] = arr[0]^arr[i];
+			arr[i] = arr[0]^arr[i];
+			maxHeapify(arr,0,i); // 因为0不是最大的元素了，再将最大的元素往上提即可
+		}
+	}
+
+	// 构建二叉堆
+	public static void buildMaxHeap(int[] arr){
+		// 完全二叉树当节点下标从 arr.length/2到arr.length-1 的节点都是叶子节点
+		// 叶子结点，左右子节点都为空，即叶子结点就是一个最大堆
+		// 从低往上进行遍历构建堆，从第一个不为叶子节点的节点开始
+		for (int i = arr.length/2 - 1; i >= 0 ; i--) {
+			maxHeapify(arr,i,arr.length);
+		}
+	}
+
+	/**
+	 *	将当前节点以及其左右子节点最大的值放在当前节点
+	 * @param arr 排序的数组
+	 * @param i   父节点的下标
+	 * @param length 长度
+	 */
+	public static void maxHeapify(int[] arr,int i,int length){
+		int left = 2*i+1;
+		int max;
+
+		if(left < length && arr[left] > arr[i]){ // 从左子节点与当前节点找出大的
+			max = left;
+		}else {
+			max = i;
+		}
+		if(left+1 < length && arr[left+1] > arr[max] ){ // 从右子节点与当前节点找出大的
+			max = left+1;
+		}
+
+		if(max != i){
+			arr[max] = arr[max]^arr[i];
+			arr[i] = arr[max]^arr[i];
+			arr[max] = arr[max]^arr[i];
+			maxHeapify(arr,max,length); // 需要继续递归查看交换后的子节点是否满足堆
+		}
+	}
+}

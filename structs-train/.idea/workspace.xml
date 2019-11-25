@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2810b921-c505-4784-9691-dc1c9cf0c14a" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1PuNtjpGcGhO9YlWUiphIQqMvPQ" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Test (1)">
+    <configuration name="ArrayBinaryTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tree.ArrayBinaryTree" />
+      <module name="structs-train" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BinaryTreeDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tree.BinaryTreeDemo" />
+      <module name="structs-train" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BubbleSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="order.BubbleSort" />
+      <module name="structs-train" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShellSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="order.ShellSort" />
+      <module name="structs-train" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="order.Test" />
+      <module name="structs-train" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test (1)" />
+        <item itemvalue="Application.ShellSort" />
+        <item itemvalue="Application.BubbleSort" />
+        <item itemvalue="Application.BinaryTreeDemo" />
+        <item itemvalue="Application.ArrayBinaryTree" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2810b921-c505-4784-9691-dc1c9cf0c14a" name="Default Changelist" comment="" />
+      <created>1566720237166</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566720237166</updated>
+      <workItem from="1566720238948" duration="11908000" />
+      <workItem from="1566781864209" duration="3411000" />
+      <workItem from="1567388243188" duration="5487000" />
+      <workItem from="1567822489665" duration="796000" />
+      <workItem from="1567825201615" duration="16601000" />
+      <workItem from="1567910232014" duration="1384000" />
+      <workItem from="1567954785263" duration="2627000" />
+      <workItem from="1567991787554" duration="620000" />
+      <workItem from="1568010828329" duration="1407000" />
+      <workItem from="1568173629092" duration="8183000" />
+      <workItem from="1568251858505" duration="10488000" />
+      <workItem from="1568350368744" duration="10834000" />
+      <workItem from="1568424167925" duration="10832000" />
+      <workItem from="1568513129395" duration="14721000" />
+      <workItem from="1568596265978" duration="27775000" />
+      <workItem from="1568683438925" duration="14647000" />
+      <workItem from="1568725548025" duration="2940000" />
+      <workItem from="1568769436132" duration="609000" />
+      <workItem from="1568770403235" duration="722000" />
+      <workItem from="1568791506777" duration="1287000" />
+      <workItem from="1568800135541" duration="3847000" />
+      <workItem from="1568808284272" duration="4697000" />
+      <workItem from="1568873540489" duration="5428000" />
+      <workItem from="1568905764886" duration="3499000" />
+      <workItem from="1568942562349" duration="7012000" />
+      <workItem from="1569032620505" duration="15309000" />
+      <workItem from="1569075364963" duration="6598000" />
+      <workItem from="1569118272540" duration="15980000" />
+      <workItem from="1569201548147" duration="6346000" />
+      <workItem from="1569231785571" duration="5380000" />
+      <workItem from="1569287683983" duration="8036000" />
+      <workItem from="1569314169312" duration="1941000" />
+      <workItem from="1569332647212" duration="5672000" />
+      <workItem from="1569370833406" duration="6000" />
+      <workItem from="1569372038790" duration="2943000" />
+      <workItem from="1569421160400" duration="3522000" />
+      <workItem from="1569460583975" duration="438000" />
+      <workItem from="1569464038066" duration="651000" />
+      <workItem from="1569498554651" duration="1243000" />
+      <workItem from="1569571734931" duration="1802000" />
+      <workItem from="1569637104690" duration="5681000" />
+      <workItem from="1569648610648" duration="12498000" />
+      <workItem from="1569721468577" duration="6161000" />
+      <workItem from="1569983548915" duration="9779000" />
+      <workItem from="1570071690070" duration="1360000" />
+      <workItem from="1570154498914" duration="9436000" />
+      <workItem from="1570197691108" duration="603000" />
+      <workItem from="1570204539663" duration="374000" />
+      <workItem from="1570240213592" duration="13342000" />
+      <workItem from="1570327532577" duration="3443000" />
+      <workItem from="1570347405995" duration="6205000" />
+      <workItem from="1570497468568" duration="627000" />
+      <workItem from="1570512969831" duration="3030000" />
+      <workItem from="1570521280522" duration="3226000" />
+      <workItem from="1570585225559" duration="674000" />
+      <workItem from="1571195156913" duration="65000" />
+      <workItem from="1571209879526" duration="5000" />
+      <workItem from="1571742395646" duration="48000" />
+      <workItem from="1571826426850" duration="2603000" />
+      <workItem from="1571842545298" duration="25000" />
+      <workItem from="1572253670988" duration="4249000" />
+      <workItem from="1572315109303" duration="3823000" />
+      <workItem from="1572364317391" duration="188000" />
+      <workItem from="1572405418262" duration="2442000" />
+      <workItem from="1572839830234" duration="2339000" />
+      <workItem from="1572873137466" duration="52000" />
+      <workItem from="1572916755826" duration="3149000" />
+      <workItem from="1572933768264" duration="8301000" />
+      <workItem from="1573046135257" duration="31000" />
+      <workItem from="1573055508040" duration="903000" />
+      <workItem from="1573088666732" duration="141000" />
+      <workItem from="1573184528188" duration="614000" />
+      <workItem from="1573283060248" duration="6000" />
+      <workItem from="1573351789785" duration="713000" />
+      <workItem from="1573373155344" duration="10329000" />
+      <workItem from="1573434501447" duration="27000" />
+      <workItem from="1574087356288" duration="60000" />
+      <workItem from="1574683843292" duration="3238000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

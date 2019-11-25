@@ -1,0 +1,77 @@
+package recursion;
+
+/**
+ * 迷宫问题
+ */
+public class Maze {
+
+	public static void main(String[] args) {
+		int[][]  map = new int[8][7];
+		// 边框设置为1
+		// 上下
+		for (int i = 0; i < 7; i++) {
+			map[0][i] = 1;
+			map[7][i] = 1;
+		}
+		// 左右
+		for (int i = 0; i < 8; i++) {
+			map[i][0] = 1;
+			map[i][6] = 1;
+		}
+		// 添加障碍
+		map[3][1] = 1;
+		map[3][2] = 1;
+		for (int i = 0; i < map.length; i++) {
+			for (int j = 0; j < map[i].length; j++) {
+				System.out.print(map[i][j]+" ");
+			}
+			System.out.println();
+		}
+
+
+		setWay(map,1,1);
+
+		for (int i = 0; i < map.length; i++) {
+			for (int j = 0; j < map[i].length; j++) {
+				System.out.print(map[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+
+	/**
+	 * 1. 0 代表未走过，1 代表墙，2 代表已走过，3 代表走不通
+	 * 2. 策略采用 下右上左(也可以用上右下左)
+	 * 3. 求最短路径(根据不同算法进行区别)
+	 * 4. [6,5] 为终点
+	 * @param map 地图
+	 * @param x 初始横坐标
+	 * @param y 初始纵坐标
+	 * @return
+	 */
+	public static boolean setWay(int[][] map,int x,int y){
+		if(map[6][5] == 2){ // 终止条件
+			return true;
+		} else {
+			if(map[x][y] == 0){ // 如果可以走
+				// 采取策略进行递归
+				map[x][y] = 2; // 先认定该点能够走通
+				if (setWay(map,x+1,y)){ // 下
+					return true;
+				} else if(setWay(map,x,y+1)){ // 右
+					return true;
+				} else if(setWay(map,x-1,y)){ // 上
+					return true;
+				} else if(setWay(map,x,y-1)){ // 左
+					return true;
+				}else {
+					map[x][y] = 3; // 如果都走不通，就置为3
+					return false;
+				}
+			} else {
+				// 如果为1、2、3
+				return false;
+			}
+		}
+	}
+}

@@ -1,0 +1,116 @@
+package order;
+
+import java.util.Arrays;
+
+/**
+ * 快速排序
+ * 从数组中取出一个基准值pivot，通过left指针与right指针与pivot进行比较，将比pivot小的值放在左边，大的放在右边
+ * 再递归从基准值pivot左右两边的数组取新的基准值进行上述操作，直到left>right，代表基准值左右都排序好了，不需要在进行交换了
+ */
+public class QuickSort {
+
+	public static void main(String[] args) {
+		int[] arr = {1,7,-2,9,8,5,7,7,8};
+		quickSort(arr,0,arr.length-1);
+		System.out.println(Arrays.toString(arr));
+	}
+
+	/**
+	 * 使用填坑法
+	 * 1. 以数组最左边的元素为基准值，用temp进行暂存
+	 * 2. 最左边的元素就是一个“坑”(temp已经暂存其值，可以将其视为没有值的坑)
+	 * 3. 用left，right分别指向数组最左与最右的元素
+	 * 4. 由于使用的最左边为基准，就从right--开始向左遍历，直到找到比基准值小的数，将其填入“坑”中，同时left++(由于坑已经有值了)
+	 * 5. 此时右边那个填入左边“坑”的位置形成了一个新的“坑”，用left++向右进行遍历，找到一个比基准值大的值，将其填入“坑”，同时right--
+	 * 6. 当left=right的时候就代表这一轮已经完成，这个时候“坑”也到了left(right)的位置，将temp填入
+	 * 7. 根据最后坑的位置，将数组分为左右两部分，左边与右边按照上述方式递归进行，当left>=right的时候就代表排序完成
+	 */
+	// 分割数组
+	public static int partition(int[] arr,int left,int right){
+		int pivot = arr[left]; // 去最左边的为基准值
+		while(left < right){
+			// 先right向左遍历找比pivot小的值
+			while (arr[right] >= pivot && left < right){ // 需要判断等于，不然数组出现重复的值会栈溢出
+				right --;
+			}
+			if(left < right){ // 上面循环结束条件一般是arr[right] < pivot,所以需要先判断一次
+				// 填左边的坑
+				arr[left] = arr[right];
+				left ++; // 由于坑以及有值，后移一位
+			}
+			// left向左遍历找比pivot大的值
+			while (arr[left] <= pivot && left < right){
+				left ++;
+			}
+
+			if(left < right){
+				arr[right] = arr[left];
+				right --; // right左移
+			}
+		}
+		arr[left] = pivot; // 最后将基准值填入最后的坑中
+		return left; // 将基准值的位置返回，之后分组递归用
+	}
+
+	// 填坑法：partition  三数取中：partition1
+	public static void quickSort(int[] arr,int left,int right){
+		if(arr.length <= 1 || left >= right){ // 当left移动到right的位置代表已经排序结束
+			return;
+		}
+		int mid = partition1(arr,left,right); // 获取基准值的下标
+		// 向左递归
+		quickSort(arr,left,mid);
+		// 向右递归
+		quickSort(arr,mid+1,right);
+	}
+
+
+	/**
+	 * 使用三数取中法
+	 * 从算法的特性可以看出，如果基准值可以取到整个数组的中间值，效果是最好的
+	 * 但是找到该值需要耗费很多运算
+	 * 每次递归的时候直接取left，right和mid的值进行对比将中间的值作为基准值可以起到近视效果，可优化上面的代码
+	 */
+	public static int partition1(int[] arr,int left,int right){
+		// 基准值依旧是取数组第一个
+		// 获取中间位置的下标
+		int mid = left+(right-left)/2;
+		// 让三个点大小中间的值交换到left(即作为基准值)
+		if(arr[left] > arr[right]){ // 将较大的值向右移动
+			swap(arr,left,right);
+		}
+		if(arr[mid] > arr[right]){ // 将较大的值向右移
+			swap(arr,mid,right);
+		}
+		if(arr[mid] > arr[left]){ // 下标left取中间的值
+			swap(arr,left,mid);
+		}
+		int pivot = arr[left];
+		while (left < right){
+			while (arr[right] >= pivot && left < right){ // 从右边找到小于基准值的下标
+				right --;
+			}
+			if(left < right){
+				arr[left] = arr[right];
+				left ++;
+			}
+
+			while (arr[left] <= pivot && left < right){
+				left ++;
+			}
+			if(left < right){
+				arr[right] = arr[left];
+				right --;
+			}
+		}
+		// 将基准值填入坑中
+		arr[left] = pivot;
+		return left; // 返回的是基准值的下标，用于之后的递归，划分数组
+	}
+
+	public static void swap(int[] arr,int left,int right){
+		arr[left] = arr[left]^arr[right];
+		arr[right] = arr[left]^arr[right];
+		arr[left] = arr[left]^arr[right];
+	}
+}

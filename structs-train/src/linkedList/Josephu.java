@@ -1,0 +1,136 @@
+package linkedList;
+
+public class Josephu {
+
+	public static void main(String[] args) {
+		CircleSingleLinkedList linkedList = new CircleSingleLinkedList();
+		linkedList.add(5);
+		//linkedList.print();
+		linkedList.count(1,2,5); // 2-4-1-5-3
+	}
+}
+
+/**
+ * 单向循环链表:
+ * 		1. 需要一个first节点一直指向头结点
+ * 		2. 需要一个cur节点进行遍历
+ * 		3. 不需要空的head节点，head.next就是head本身
+ * 	    4. 添加节点的时候 cur.next = 新节点, 新节点.next = first 即可
+ * 	    5. 遍历的时候只需要判断cur是否为head即可
+ */
+class CircleSingleLinkedList{
+
+	private JNode first = null;
+
+	/**
+	 * 添加指定个数的节点
+	 * @param num
+	 */
+	public void add(int num){
+		if(num < 1){ // 保证至少一个节点
+			System.out.println("入参不合法");
+			return;
+		}
+		JNode cur = null;
+		for (int i = 1; i <= num; i++) {
+			JNode node = new JNode(i);
+			if(i == 1){ // 当添加第一个节点
+				first = node;
+				first.setNext(first);
+				cur = first; // 指向first
+			}else {
+				cur.setNext(node);
+				node.setNext(first);
+				cur = cur.getNext();
+			}
+		}
+	}
+
+	/**
+	 * 1. 由于单链表的特性，除了first节点之外，需要一个helper节点指向first的前一个节点，方便删除
+	 * 2. 由于first指向的节点也要报数，每次移动只需要移动 move - 1个节点
+	 * 3. 第一次报数开始的位置也只需要移动 start-1 次
+	 * @param start  第一次报数开始的位置
+	 * @param move   每次报数需要移动的位置
+	 * @param num    一共有多少个node
+	 */
+	public void count(int start,int move,int num){
+		if(first == null || start > num || move < 1){
+			System.out.println("入参不合法");
+			return;
+		}
+		// 获取helper节点位置
+		JNode helper = first;
+		while (true) {
+			if (helper.getNext() == first){
+				break;
+			}
+			helper = helper.getNext();
+		}
+		// 将helper与first移动到start的位置
+		for (int i = 1; i < start; i++) {
+			helper = helper .getNext();
+			first = first.getNext();
+		}
+
+		// 开始报数出圈
+		while (true) {
+			if(helper == first){ // 当helper 与 first指向通一个节点的时候，链表就只剩下一个节点
+				System.out.println("最后出圈的编号:"+helper.getNo());
+				break;
+			}
+			// 开始移动
+			for (int i = 1; i < move; i++) {
+				helper = helper.getNext();
+				first = first.getNext();
+			}
+			System.out.println("出圈的编号为:"+first.getNo());
+			// 删除first节点   first后移一位，helper.next指向first即可
+			first = first.getNext();
+			helper.setNext(first);
+		}
+	}
+
+	/**
+	 * 遍历当前链表
+	 */
+	public void print(){
+		if(first == null){
+			System.out.println("链表为空");
+			return;
+		}
+		JNode cur = first;
+		while(true){
+			System.out.println("当前编号:"+cur.getNo());
+			if(cur.getNext().equals(first)){
+				break;
+			}
+			cur = cur.getNext();
+		}
+	}
+}
+
+class JNode {
+	private int no;
+	private JNode next;
+
+	public JNode (int no){
+		this.no = no;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public JNode getNext() {
+		return next;
+	}
+
+	public void setNext(JNode next) {
+		this.next = next;
+	}
+}
